@@ -29,7 +29,7 @@ def generate_cnpj():
 
 # Function to generate a random name
 def generate_name():
-    first_names = ['João', 'Maria', 'Ana', 'Carlos', 'Fernanda', 'Lucas', 'Pedro', 'Isabela']
+    first_names = ['Joao', 'Maria', 'Ana', 'Carlos', 'Fernanda', 'Lucas', 'Pedro', 'Isabela']
     last_names = ['Silva', 'Santos', 'Oliveira', 'Pereira', 'Costa', 'Almeida', 'Souza', 'Lima']
     return random.choice(first_names) + " " + random.choice(last_names)
 
@@ -69,7 +69,7 @@ def create_random_lines(num_lines):
 
         # Randomly decide if the end date should be empty or not
         end_date = generate_random_date() if random.choice([True, False]) else '        '  # 8 spaces if empty
-
+        indicar_exclusao = "N"
         # Filler and "Número de registro" are fixed-size fields
         filler = ''.ljust(20)
         numero_registro = str(i).zfill(10)  # Use the line number, padded to 10 digits
@@ -92,6 +92,7 @@ def create_random_lines(num_lines):
             f"{titularidade:<1}"  # Titularidade (1 character)
             f"{start_date:<8}"  # Data de Início (YYYYMMDD, 8 characters)
             f"{end_date:<8}"  # Data de Encerramento (YYYYMMDD, or 8 spaces if empty)
+            f"{indicar_exclusao:<1}"
             f"{filler}"  # Filler (20 spaces)
             f"{numero_registro:<10}"  # Número de Registro (10 characters, filled with line number)
         )
